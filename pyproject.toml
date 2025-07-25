@@ -1,0 +1,47 @@
+[project]
+authors = [{name = "James Brodovsky", email = "james.brodovsky@gmail.com"}]
+description = "A dataset of GPS, IMU, and INS measurements from MEMS-grade sensors and a toolbox for developing trajectories."
+dependencies = [
+    "numpy >=2.3.1,<3",
+    "pandas >=2.3.1,<3",
+    "cartopy >=0.24.0,<0.25"
+]
+name = "mems-nav-dataset"
+requires-python = ">= 3.11"
+version = "0.1.0"
+
+[project.scripts]
+preprocess = "mems_nav_dataset.preprocessor:main"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "win-64"]
+
+[tool.pixi.pypi-dependencies]
+mems_nav_dataset = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+lint = "ruff check --select I --fix"
+format = "ruff format ."
+style = [{task = "lint"}, {task = "format"}]
+install = "cargo install strapdown-rs"
+create_input = [
+    {task = "preprocess data/raw data/input 1"},
+    {task = "preprocess data/raw data/input 5"},
+    {task = "preprocess data/raw data/input 10"}
+    ]
+
+[tool.pixi.tasks.preprocess]
+args = [
+    {"arg" = "directory", "default" = "./data/raw"},
+    {"arg" = "output", "default" = "./data/input"},
+    {"arg" = "frequency", "default" = "1"}
+    ]
+cmd = "preprocess --base_dir {{directory}} --output_dir {{output}} --frequency {{frequency}}"
+
+[tool.pixi.dependencies]
+rust = ">=1.88.0,<1.89"
