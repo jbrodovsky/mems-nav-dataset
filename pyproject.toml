@@ -43,5 +43,13 @@ args = [
     ]
 cmd = "preprocess --base_dir {{directory}} --output_dir {{output}} --frequency {{frequency}}"
 
+[tool.pixi.tasks.create_truth]
+args = [
+    {"arg" = "input_dir", "default" = "./data/input"},
+    {"arg" = "output_dir", "default" = "./data/truth"},
+    {"arg" = "frequency", "default" = "1"}
+]
+cmd = "scripts/create_truth.nu {{input_dir}}/{{frequency}}Hz {{output_dir}}/{{frequency}}Hz"
+
 [tool.pixi.dependencies]
 rust = ">=1.88.0,<1.89"
