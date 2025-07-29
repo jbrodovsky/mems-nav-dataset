@@ -42,7 +42,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025b-h78e105d_0.conda
       - pypi: https://files.pythonhosted.org/packages/a3/5b/476c8f3a277d7c78e5a5318bd32f234b994bfdc5d7731ae84218f2fa8a8f/Cartopy-0.24.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/4f/52/34c6cf5bb9285074dc3531c437b3919e825d976fde097a7a73f79e726d03/certifi-2025.7.14-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/c8/65/5245ce8c548a8422236c13ffcdcdada6a2a812c361e9e0c70548bb40b661/contourpy-1.3.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/4b/32/e0f13a1c5b0f8572d0ec6ae2f6c677b7991fafd95da523159c19eff0696a/contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/75/b4/b96bb66f6f8cc4669de44a158099b249c8159231d254ab6b092909388be5/fonttools-4.59.0-cp313-cp313-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/8f/e9/6a7d025d8da8c4931522922cd706105aa32b3291d1add8c5427cdcd66e63/kiwisolver-1.4.8-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
@@ -81,7 +81,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025b-h78e105d_0.conda
       - pypi: https://files.pythonhosted.org/packages/e6/e8/38e00eb35743f22d4ee9bcb131ab273fb47ec39cc03ce5144686a3142756/Cartopy-0.24.1-cp313-cp313-macosx_10_13_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/4f/52/34c6cf5bb9285074dc3531c437b3919e825d976fde097a7a73f79e726d03/certifi-2025.7.14-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/2e/61/5673f7e364b31e4e7ef6f61a4b5121c5f170f941895912f773d95270f3a2/contourpy-1.3.2-cp313-cp313-macosx_10_13_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/68/35/0167aad910bbdb9599272bd96d01a9ec6852f36b9455cf2ca67bd4cc2d23/contourpy-1.3.3-cp313-cp313-macosx_10_13_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/df/6f/d730d9fcc9b410a11597092bd2eb9ca53e5438c6cb90e4b3047ce1b723e9/fonttools-4.59.0-cp313-cp313-macosx_10_13_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/8d/2d/f13d06998b546a2ad4f48607a146e045bbe48030774de29f90bdc573df15/kiwisolver-1.4.8-cp313-cp313-macosx_10_13_x86_64.whl
@@ -116,11 +116,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/tk-8.6.13-h2c6b04d_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025b-h78e105d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h2b53caa_30.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.44.35208-h818238b_30.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h41ae7f8_31.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.44.35208-h818238b_31.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.44.35208-h818238b_31.conda
       - pypi: https://files.pythonhosted.org/packages/93/31/50bf07ba820c5aa5d4e674d72cdb5da90bbd012ba1b9c6c95c3f96afe233/Cartopy-0.24.1-cp313-cp313-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/4f/52/34c6cf5bb9285074dc3531c437b3919e825d976fde097a7a73f79e726d03/certifi-2025.7.14-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/12/6e/2fed56cd47ca739b43e892707ae9a13790a486a3173be063681ca67d2262/contourpy-1.3.2-cp313-cp313-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/18/0b/0098c214843213759692cc638fce7de5c289200a830e5035d1791d7a2338/contourpy-1.3.3-cp313-cp313-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/ee/f626cd372932d828508137a79b85167fdcf3adab2e3bed433f295c596c6a/fonttools-4.59.0-cp313-cp313-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/d0/dc/c1abe38c37c071d0fc71c9a474fd0b9ede05d42f5a458d584619cfd2371a/kiwisolver-1.4.8-cp313-cp313-win_amd64.whl
@@ -308,12 +309,12 @@ packages:
   version: 2025.7.14
   sha256: 6b31f564a415d79ee77df69d757bb49a5bb53bd9f756cbbe24394ffd6fc1f4b2
   requires_python: '>=3.7'
-- pypi: https://files.pythonhosted.org/packages/12/6e/2fed56cd47ca739b43e892707ae9a13790a486a3173be063681ca67d2262/contourpy-1.3.2-cp313-cp313-win_amd64.whl
+- pypi: https://files.pythonhosted.org/packages/18/0b/0098c214843213759692cc638fce7de5c289200a830e5035d1791d7a2338/contourpy-1.3.3-cp313-cp313-win_amd64.whl
   name: contourpy
-  version: 1.3.2
-  sha256: e1578f7eafce927b168752ed7e22646dad6cd9bca673c60bff55889fa236ebf9
+  version: 1.3.3
+  sha256: 1cadd8b8969f060ba45ed7c1b714fe69185812ab43bd6b86a9123fe8f99c3263
   requires_dist:
-  - numpy>=1.23
+  - numpy>=1.25
   - furo ; extra == 'docs'
   - sphinx>=7.2 ; extra == 'docs'
   - sphinx-copybutton ; extra == 'docs'
@@ -322,7 +323,7 @@ packages:
   - contourpy[bokeh,docs] ; extra == 'mypy'
   - bokeh ; extra == 'mypy'
   - docutils-stubs ; extra == 'mypy'
-  - mypy==1.15.0 ; extra == 'mypy'
+  - mypy==1.17.0 ; extra == 'mypy'
   - types-pillow ; extra == 'mypy'
   - contourpy[test-no-images] ; extra == 'test'
   - matplotlib ; extra == 'test'
@@ -332,13 +333,13 @@ packages:
   - pytest-rerunfailures ; extra == 'test-no-images'
   - pytest-xdist ; extra == 'test-no-images'
   - wurlitzer ; extra == 'test-no-images'
-  requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/2e/61/5673f7e364b31e4e7ef6f61a4b5121c5f170f941895912f773d95270f3a2/contourpy-1.3.2-cp313-cp313-macosx_10_13_x86_64.whl
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/4b/32/e0f13a1c5b0f8572d0ec6ae2f6c677b7991fafd95da523159c19eff0696a/contourpy-1.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
   name: contourpy
-  version: 1.3.2
-  sha256: de39db2604ae755316cb5967728f4bea92685884b1e767b7c24e983ef5f771cb
+  version: 1.3.3
+  sha256: 4debd64f124ca62069f313a9cb86656ff087786016d76927ae2cf37846b006c9
   requires_dist:
-  - numpy>=1.23
+  - numpy>=1.25
   - furo ; extra == 'docs'
   - sphinx>=7.2 ; extra == 'docs'
   - sphinx-copybutton ; extra == 'docs'
@@ -347,7 +348,7 @@ packages:
   - contourpy[bokeh,docs] ; extra == 'mypy'
   - bokeh ; extra == 'mypy'
   - docutils-stubs ; extra == 'mypy'
-  - mypy==1.15.0 ; extra == 'mypy'
+  - mypy==1.17.0 ; extra == 'mypy'
   - types-pillow ; extra == 'mypy'
   - contourpy[test-no-images] ; extra == 'test'
   - matplotlib ; extra == 'test'
@@ -357,13 +358,13 @@ packages:
   - pytest-rerunfailures ; extra == 'test-no-images'
   - pytest-xdist ; extra == 'test-no-images'
   - wurlitzer ; extra == 'test-no-images'
-  requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/c8/65/5245ce8c548a8422236c13ffcdcdada6a2a812c361e9e0c70548bb40b661/contourpy-1.3.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/68/35/0167aad910bbdb9599272bd96d01a9ec6852f36b9455cf2ca67bd4cc2d23/contourpy-1.3.3-cp313-cp313-macosx_10_13_x86_64.whl
   name: contourpy
-  version: 1.3.2
-  sha256: 434f0adf84911c924519d2b08fc10491dd282b20bdd3fa8f60fd816ea0b48841
+  version: 1.3.3
+  sha256: 177fb367556747a686509d6fef71d221a4b198a3905fe824430e5ea0fda54eb5
   requires_dist:
-  - numpy>=1.23
+  - numpy>=1.25
   - furo ; extra == 'docs'
   - sphinx>=7.2 ; extra == 'docs'
   - sphinx-copybutton ; extra == 'docs'
@@ -372,7 +373,7 @@ packages:
   - contourpy[bokeh,docs] ; extra == 'mypy'
   - bokeh ; extra == 'mypy'
   - docutils-stubs ; extra == 'mypy'
-  - mypy==1.15.0 ; extra == 'mypy'
+  - mypy==1.17.0 ; extra == 'mypy'
   - types-pillow ; extra == 'mypy'
   - contourpy[test-no-images] ; extra == 'test'
   - matplotlib ; extra == 'test'
@@ -382,7 +383,7 @@ packages:
   - pytest-rerunfailures ; extra == 'test-no-images'
   - pytest-xdist ; extra == 'test-no-images'
   - wurlitzer ; extra == 'test-no-images'
-  requires_python: '>=3.10'
+  requires_python: '>=3.11'
 - pypi: https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl
   name: cycler
   version: 0.12.1
@@ -1720,27 +1721,40 @@ packages:
   purls: []
   size: 559710
   timestamp: 1728377334097
-- conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h2b53caa_30.conda
-  sha256: 8e16a8c3270d88735234a8097d45efea02b49751800c83b6fd5f2167a3828f52
-  md5: 76b6febe6dea7991df4c86f826f396c5
+- conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h41ae7f8_31.conda
+  sha256: cb357591d069a1e6cb74199a8a43a7e3611f72a6caed9faa49dbb3d7a0a98e0b
+  md5: 28f4ca1e0337d0f27afb8602663c5723
   depends:
-  - vc14_runtime >=14.42.34433
+  - vc14_runtime >=14.44.35208
   track_features:
   - vc14
   license: BSD-3-Clause
   license_family: BSD
   purls: []
-  size: 17962
-  timestamp: 1753139853244
-- conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.44.35208-h818238b_30.conda
-  sha256: 2958ef637509d69ea496b091dc579f1bf38687575b65744e73d157cfe56c9eca
-  md5: fa6802b52e903c42f882ecd67731e10a
+  size: 18249
+  timestamp: 1753739241465
+- conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.44.35208-h818238b_31.conda
+  sha256: af4b4b354b87a9a8d05b8064ff1ea0b47083274f7c30b4eb96bc2312c9b5f08f
+  md5: 603e41da40a765fd47995faa021da946
   depends:
   - ucrt >=10.0.20348.0
+  - vcomp14 14.44.35208 h818238b_31
   constrains:
-  - vs2015_runtime 14.44.35208.* *_30
+  - vs2015_runtime 14.44.35208.* *_31
   license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
   license_family: Proprietary
   purls: []
-  size: 754911
-  timestamp: 1753139843755
+  size: 682424
+  timestamp: 1753739239305
+- conda: https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.44.35208-h818238b_31.conda
+  sha256: 67b317b64f47635415776718d25170a9a6f9a1218c0f5a6202bfd687e07b6ea4
+  md5: a6b1d5c1fc3cb89f88f7179ee6a9afe3
+  depends:
+  - ucrt >=10.0.20348.0
+  constrains:
+  - vs2015_runtime 14.44.35208.* *_31
+  license: LicenseRef-MicrosoftVisualCpp2015-2022Runtime
+  license_family: Proprietary
+  purls: []
+  size: 113963
+  timestamp: 1753739198723
