@@ -9,7 +9,7 @@ def main [input_dir: string, output_dir: string] {
     # Ensure output directory exists (no error if already exists)
     mkdir $output_dir
     # Find all .csv files in input_dir
-    ls $input_dir | where type == 'file' and name =~ ".csv$" | each {|file|
+    ls $input_dir | where type == 'file' and name =~ ".csv$" | par-each {|file|
         let input_file = $file.name
         let base = ($input_file | path basename | str replace ".csv" "")
         print $"Processing: ($input_file)"

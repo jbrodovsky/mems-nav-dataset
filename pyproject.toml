@@ -4,14 +4,18 @@ description = "A dataset of GPS, IMU, and INS measurements from MEMS-grade senso
 dependencies = [
     "numpy >=2.3.1,<3",
     "pandas >=2.3.1,<3",
-    "cartopy >=0.24.0,<0.25"
+    "cartopy >=0.24.0,<0.25",
+    "tqdm >=4.67.1,<5"
 ]
 name = "mems-nav-dataset"
 requires-python = ">= 3.11"
 version = "0.1.0"
 
 [project.scripts]
-preprocess = "mems_nav_dataset.preprocessor:main"
+preprocess = "mems_nav_dataset.preprocess:main"
+plot = "mems_nav_dataset.plot:main"
+truth = "mems_nav_dataset.truth:main"
+degraded = "mems_nav_dataset.degraded:main"
 
 [build-system]
 build-backend = "hatchling.build"
@@ -24,16 +28,12 @@ platforms = ["linux-64", "osx-64", "win-64"]
 [tool.pixi.pypi-dependencies]
 mems_nav_dataset = { path = ".", editable = true }
 
-[tool.pixi.tasks]
-lint = "ruff check --select I --fix"
-format = "ruff format ."
-style = [{task = "lint"}, {task = "format"}]
-install = "cargo install strapdown-rs"
-create_input = [
-    {task = "preprocess data/raw data/input 1"},
-    {task = "preprocess data/raw data/input 5"},
-    {task = "preprocess data/raw data/input 10"}
-    ]
+# Complex tasks first
+[tool.pixi.tasks.hello]
+args = [
+    {"arg" = "name", "default" = "World"}
+]
+cmd = "echo hello {{name}}!"
 
 [tool.pixi.tasks.preprocess]
 args = [
@@ -43,13 +43,57 @@ args = [
     ]
 cmd = "preprocess --base_dir {{directory}} --output_dir {{output}} --frequency {{frequency}}"
 
-[tool.pixi.tasks.create_truth]
+[tool.pixi.tasks.truth]
 args = [
     {"arg" = "input_dir", "default" = "./data/input"},
     {"arg" = "output_dir", "default" = "./data/truth"},
     {"arg" = "frequency", "default" = "1"}
 ]
-cmd = "scripts/create_truth.nu {{input_dir}}/{{frequency}}Hz {{output_dir}}/{{frequency}}Hz"
+cmd = "truth --input_dir {{input_dir}}/{{frequency}}Hz --output_dir {{output_dir}}/{{frequency}}Hz"
+
+[tool.pixi.tasks.intermittent]
+args = [
+    {"arg" = "input_dir", "default" = "./data/input"},
+    {"arg" = "output_dir", "default" = "./data/degraded"},
+    {"arg" = "gps_interval", "default" = "10"},
+    {"arg" = "gps_accuracy", "default" = "1.0"},
+    {"arg" = "gps_spoofing", "default" = "0.0"}
+]
+cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+
+[tool.pixi.tasks.degraded]
+args = [
+    {"arg" = "input_dir", "default" = "./data/input"},
+    {"arg" = "output_dir", "default" = "./data/degraded"},
+    {"arg" = "gps_interval", "default" = "10"},
+    {"arg" = "gps_accuracy", "default" = "1.0"},
+    {"arg" = "gps_spoofing", "default" = "0.0"}
+]
+cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+
+[tool.pixi.tasks.spoofed]
+args = [
+    {"arg" = "input_dir", "default" = "./data/input"},
+    {"arg" = "output_dir", "default" = "./data/spoofed"},
+    {"arg" = "gps_interval", "default" = "1"},
+    {"arg" = "gps_accuracy", "default" = "1.0"},
+    {"arg" = "gps_spoofing", "default" = "5.0"}
+]
+cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+
+[tool.pixi.tasks]
+lint = "ruff check --select I --fix"
+format = "ruff format ."
+style = [{task = "lint"}, {task = "format"}]
+install = "cargo install strapdown-rs"
+create_input = "pixi run preprocess data/raw data/input 1; pixi run preprocess data/raw data/input 2; pixi run preprocess data/raw data/input 5; pixi run preprocess data/raw data/input 10"
+create_truth = "pixi run truth data/input data/truth 1; pixi run truth data/input data/truth 2; pixi run truth data/input data/truth 5; pixi run truth data/input data/truth 10"
+create_intermittent = "pixi run intermittent data/input data/intermittent 10 1.0 0.0; pixi run intermittent data/input data/intermittent 20 1.0 0.0; pixi run intermittent data/input data/intermittent 30 0.1 0.0"
+create_degraded = "pixi run degraded data/input data/degraded 1 2.0 0.0; pixi run degraded data/input data/degraded 1 5.0 0.0; pixi run degraded data/input data/degraded 1 10.0 0.0"
+create_spoofed = "pixi run spoofed data/input data/spoofed 1 1.0 5.0; pixi run spoofed data/input data/spoofed 1 1.0 10.0; pixi run spoofed data/input data/spoofed 1 1.0 15.0"
+
+[tool.pixi.tasks.say_hello]
+cmd = "pixi run hello EARTH; pixi run hello MARS"
 
 [tool.pixi.dependencies]
 rust = ">=1.88.0,<1.89"
