@@ -1,8 +1,5 @@
 import os
 from argparse import ArgumentParser
-from glob import glob
-
-import pandas as pd
 
 
 def run_degraded(
@@ -28,10 +25,6 @@ def run_degraded(
         config_str += f"_{gps_accuracy}m"
     if gps_spoofing != 0.0:
         config_str += f"_{gps_spoofing}m"
-    final_output_dir = os.path.join(output_dir, config_str) if config_str else output_dir
-    # os.makedirs(final_output_dir, exist_ok=True)
-    # Find all .csv files in input_dir recursively
-    # for input_file in glob(os.path.join(input_dir, "**", "*.csv"), recursive=True):
     for root, _, files in os.walk(input_dir):
         for input_file in files:
             if input_file.endswith(".csv"):
