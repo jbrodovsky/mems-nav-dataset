@@ -12,3 +12,16 @@ The following folders contain processed trajectory data files that simulate vari
 - `spoofed/`: Contains trajectory data files that simulate GPS spoofing conditions (i.e. GPS data that has been altered to mislead the navigation system and contains a fixed offset).
 - `intermittent/`: Contains trajectory data files that simulate intermittent GPS conditions (i.e. GPS data that is not available for certain periods of time).
 - `combo/`: Contains trajectory data files that simulate a combination of degraded, spoofed, and intermittent GPS conditions.
+
+Below each root data folder is a set of directories indicating the source frequency of the data recorded. The original frequency recorded was at 10 Hz. These have been downsampled respectively to 5 Hz, 2 Hz, and 1 Hz. Any additional processing (calculation of truth, degradation, etc.) should be applied within these frequency-specific folders. In other words, an intermittent GPS-denied scenario could have a GPS measurement applied every 60 seconds. Thus this folder structure would look like
+```
+intermitent
+-- 1Hz
+    -- 60s
+-- 2Hz
+    -- 60s
+-- 5Hz
+    -- 60s
+-- 10Hz
+    -- 60s
+```
