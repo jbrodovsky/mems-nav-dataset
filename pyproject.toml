@@ -59,7 +59,7 @@ args = [
     {"arg" = "gps_accuracy", "default" = "1.0"},
     {"arg" = "gps_spoofing", "default" = "0.0"}
 ]
-cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+cmd = "degraded --input_dir {{input_dir}} --output_dir {{output_dir}} --gps_interval {{gps_interval}} --gps_accuracy {{gps_accuracy}} --gps_spoofing {{gps_spoofing}}"
 
 [tool.pixi.tasks.degraded]
 args = [
@@ -69,7 +69,7 @@ args = [
     {"arg" = "gps_accuracy", "default" = "1.0"},
     {"arg" = "gps_spoofing", "default" = "0.0"}
 ]
-cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+cmd = "degraded --input_dir {{input_dir}} --output_dir {{output_dir}} --gps_interval {{gps_interval}} --gps_accuracy {{gps_accuracy}} --gps_spoofing {{gps_spoofing}}"
 
 [tool.pixi.tasks.spoofed]
 args = [
@@ -79,7 +79,7 @@ args = [
     {"arg" = "gps_accuracy", "default" = "1.0"},
     {"arg" = "gps_spoofing", "default" = "5.0"}
 ]
-cmd = "degraded {{input_dir}} {{output_dir}} {{gps_interval}} {{gps_accuracy}} {{gps_spoofing}}"
+cmd = "degraded --input_dir {{input_dir}} --output_dir {{output_dir}} --gps_interval {{gps_interval}} --gps_accuracy {{gps_accuracy}} --gps_spoofing {{gps_spoofing}}"
 
 [tool.pixi.tasks]
 lint = "ruff check --select I --fix"
@@ -88,7 +88,7 @@ style = [{task = "lint"}, {task = "format"}]
 install = "cargo install strapdown-rs"
 create_input = "pixi run preprocess data/raw data/input 1; pixi run preprocess data/raw data/input 2; pixi run preprocess data/raw data/input 5; pixi run preprocess data/raw data/input 10"
 create_truth = "pixi run truth data/input data/truth 1; pixi run truth data/input data/truth 2; pixi run truth data/input data/truth 5; pixi run truth data/input data/truth 10"
-create_intermittent = "pixi run intermittent data/input data/intermittent 10 1.0 0.0; pixi run intermittent data/input data/intermittent 20 1.0 0.0; pixi run intermittent data/input data/intermittent 30 0.1 0.0"
+create_intermittent = "pixi run intermittent data/input data/intermittent 10 1.0 0.0; pixi run intermittent data/input data/intermittent 20 1.0 0.0; pixi run intermittent data/input data/intermittent 30 1.0 0.0; pixi run intermittent data/input data/intermittent 60 1.0 0.0;"
 create_degraded = "pixi run degraded data/input data/degraded 1 2.0 0.0; pixi run degraded data/input data/degraded 1 5.0 0.0; pixi run degraded data/input data/degraded 1 10.0 0.0"
 create_spoofed = "pixi run spoofed data/input data/spoofed 1 1.0 5.0; pixi run spoofed data/input data/spoofed 1 1.0 10.0; pixi run spoofed data/input data/spoofed 1 1.0 15.0"
 

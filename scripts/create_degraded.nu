@@ -42,14 +42,15 @@ def main [input_dir: string,
     glob ($input_dir | path join "**/*.csv") | par-each {|file|
         let input_file = $file
         let base = ($input_file | path basename | str replace ".csv" "")
-        print $"Processing: ($input_file)"
-        let output_file = ($final_output_dir | path join ($base + "_" + $config_str + ".csv"))
+        print $"Processing: ($input_file) from ($base)"
+
+        # let output_file = ($final_output_dir | path join ($base + "_" + $config_str + ".csv"))
         # print $"Writing results to: ($output_file)"
-        try {
-            strapdown --mode closed-loop --input $input_file --output $output_file --gps-interval $gps_interval
-        } catch {|err|
-            print $"Skipping ($input_file) due to error: ($err.msg)"
-        }
+        # try {
+        #     strapdown --mode closed-loop --input $input_file --output $output_file --gps-interval $gps_interval
+        # } catch {|err|
+        #     print $"Skipping ($input_file) due to error: ($err.msg)"
+        # }
     }
     print "Truth mechanization data sets created."
 }

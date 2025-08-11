@@ -19,10 +19,7 @@ def run_truth_mechanization(input_dir: str, output_dir: str):
                 output_file = os.path.join(output_dir, f"{base}_truth.csv")
                 print(f"Processing: {input_file}")
                 try:
-                    # Replace with actual strapdown logic
-                    # For now, just copy the file
-                    df = pd.read_csv(input_file)
-                    df.to_csv(output_file, index=False)
+                    os.system(f"strapdown --mode closed-loop --input {input_file} --output {output_file}")
                 except Exception as err:
                     print(f"Skipping {input_file} due to error: {err}")
     print("Truth mechanization data sets created.")
