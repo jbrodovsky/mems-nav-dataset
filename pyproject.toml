@@ -76,6 +76,13 @@ args = [
 ]
 cmd = "degraded --input_dir {{input_dir}} --output_dir {{output_dir}} --gps_interval {{gps_interval}} --gps_accuracy {{gps_accuracy}} --gps_spoofing {{gps_spoofing}}"
 
+[tool.pixi.tasks.plot]
+args = [
+    {"arg" = "input_dir", "default" = "./data/truth/10Hz"},
+    {"arg" = "output_dir", "default" = "./data/plots"}
+]
+cmd = "plot --input {{input_dir}} --output {{output_dir}}"
+
 [tool.pixi.tasks]
 lint = "ruff check --select I --fix"
 format = "ruff format ."

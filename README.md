@@ -1,4 +1,5 @@
 # MEMS Navigation Dataset
+
 This repository contains a dataset and toolbox for evaluating navigation algorithms using MEMS-grade sensors. The dataset includes raw measurements from GPS and IMU sensors as well as calculated INS data. The toolbox provides utilities for processing and analyzing these measurements. The primary focus is on enabling the research of navigation in GPS/GNSS denied, degraded, or contested environments using low-cost MEMS sensors such as what you would find on a typical smartphone.
 
 ## Dataset Overview
@@ -22,4 +23,3 @@ among others.
 ### Ground Truth
 
 Full state loosely coupled UKF INS estimates using GPS position and velocity measurements as well as on-board computed barometric altitude and magnetic heading. This ground truth is considered accurate and valid as the positioning error is less than the GPS confidence accuracy.
-

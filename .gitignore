@@ -2,6 +2,16 @@
 data/raw/**/*.csv
 data/raw/**/*.json
 
+# Ignore latex junk
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

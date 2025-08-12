@@ -1,0 +1,96 @@
+% sage_latex_guidelines.tex V1.20, 14 January 2017
+
+\documentclass[Review,sageh,times]{sagej}
+
+\usepackage{moreverb,url}
+
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
+%\usepackage{biblatex}
+
+\newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\def\volumeyear{2025}
+
+\begin{document}
+
+\runninghead{Brodovsky MEMS-Nav}
+
+\title{MEMS-Nav: A MEMS-Grade Dataset for Navigation Research}
+
+\author{James Brodovsky\affilnum{1}}
+
+\affiliation{\affilnum{1}Temple University}
+
+\corrauth{James Brodovsky, Temple University, Philadelphia, PA 19122, USA}
+
+\email{jbrodovsky@temple.edu}
+
+\begin{abstract}
+  This paper describes a dataset for research and education in the field of navigation using MEMS-grade sensors. Many other such datasets either are collected in a fairly small scale laboratory or field setting (typical of the robotics and unmanned systems community), or they focus on high-end sensors (typical of the marine and aerospace communities). In contrast, this dataset splits the difference: it is collected on what might be the most ubiquitous type of sensor configuration --- the MEMS-grade IMU and GPS antenna on most modern cell phones --- and contains longer term trajectories comparable to the marine and aerospace communities. It's primary contribution it to provide a dataset that is both accessible and representative of real-world conditions and simulate various conditions of GPS/GNSS degradation, spoofing, and intermittent availability.
+\end{abstract}
+
+\keywords{inertial navigation, MEMS-grade sensors, dataset, IMU, GPS, GNSS}
+\maketitle
+
+\section{Introduction}
+Inertial navigation systems (INS) are widely used in various applications, including robotics, aerospace, and automotive industries. These systems rely on a combination of inertial measurement units (IMUs) and global navigation satellite systems (GNSS) to provide accurate position and orientation information. However, the performance of INS can be significantly affected by the quality of the sensor data, which is influenced by factors such as sensor noise, bias, and environmental conditions. 
+
+The general architecture of a modern INS is to use the angular rate and specific force measurements from the IMU to propagate the state estimate over time. IMUs (even high quality ones) are nonetheless noisy sensors and integrating noise values twice eventually leads to substantial accumulation of error in the position and orientation estimates. This error is typically corrected for by some sort of external position, velocity or combined measurement such as what is commonly available from the Global Positioning System (GPS) or the Global Navigation Satellite System (GNSS). However, these systems can be subject to various forms of degradation, including spoofing, intermittent availability, and other environmental factors that can affect the accuracy of the position estimates.
+
+\subsection{Overview of available datasets}
+
+Researchers and practitioners require access to quality datasets that capture or simulate the complexities of real-world navigation scenarios. Many such datasets exist that capture some aspects of these challenges, however they frequently rely on higher-end sensors \cite{}, are proprietary (even if still open-access) \cite{waymo}, or are collected in a fairly small scale laboratory or field setting \cite{mit-darpa,ford-campus,kitti-carla,kitti,nclt,oxford-robotcar,kaist-urban}. Even in a more applicable or ideal scenario, where the dataset is collected on a reasonable quality sensor that would potentially be deployed on an autonomous system, the data collected covers a comparatively small footprint (\cite{kitti,oxford-robotcar}). While potentially useful to develop a navigation system in these scenarios that uses common WGS84 coordinates (latitude and longitude et cetera) the route these vehicles take and the additional sensors on board are intended to provide position feedback in the form of scene or landmark recognition and/or simultaneous localization and mapping by incorporating additional information about the local environment via lidar obstacle detection, visual inertial odometry, scene comprehension, or other such methods.
+
+In contrast, many traditional navigation problems do not have such information available to them in their environment. The aerospace and marine communities frequently operate in open environments with little availability of notable landmarks. Outside of the explicit context of visual flight rules, which is considered a basic and limited aviation operation condition as professional pilots have to certify under additional qualifications that require only instrument flying, the reliance on inertial navigation and radio based position feedback is increasingly pronounced. 
+
+Now lets talk about radio nav and its problems, the increasing use of unmanned systems and their low SWaP needs.
+
+\begin{table}
+  \caption{Summary of the MEMS-Nav dataset}
+  \label{tab:dataset_summary}
+  \centering
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Dataset} & \textbf{IMU} & \textbf{Ground Truth} & \textbf{Scale} \\
+    \hline
+      MIT DARPA & NA & GPS+INS & Small \\
+      \cite{mit-darpa} & & & \\
+    \hline
+    Ford Campus  & Y & GPS+INS & Small \\
+    \cite{ford-campus} & & & \\
+    \hline
+    KITTI  & Y & GPS+INS & Medium \\
+    \cite{kitti} & & & \\
+    \hline
+    Oxford RobotCar  & Y & GPS+INS & Medium \\
+    \cite{oxford-robotcar} & & & \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{MEMS-Nav Dataset}
+This paper presents the MEMS-Nav dataset, which is designed to be both accessible and representative of real-world conditions. The dataset is collected using MEMS-grade sensors, which are commonly found in modern smartphones and other consumer electronics. This makes the dataset more relatable and applicable to a wider audience, including researchers and developers working with low-cost navigation systems.
+
+This paper presents a MEMS-grade dataset specifically designed for navigation research, focusing on the use of low-cost, widely available sensors. The dataset includes a variety of trajectories collected under different conditions, enabling the evaluation and development of robust navigation algorithms.\cite{strapdown-rs}.
+
+In particular, the author sought to collect a dataset that is would prove useful in the development of low-cost inertial navigation systems that leverage geophysical feedback. So while some datasets exist that cover a reasonable range and area, due to the low scale resolution of publicly available geophysical maps such as the World Digital Magnetic Anomaly Map \cite{wdmam} and IPGG Free Air anomaly map (\cite{SANDWELL20211059}, \cite{EGM2008}) substantial linear distance would need to be convered in order to provide sufficient information.
+
+
+
+\section{Strapdown Mechanization and Loosely-Coupled INSs}
+
+The local level frame and strapdown mechanization are widely implemented and provide a robust framework for inertial navigation systems (INS). By aligning the local level frame with the Earth's surface, strapdown systems can effectively utilize inertial measurements for navigation tasks.
+
+\section{A basic example of geophysical navigation}
+
+Geophysical or terrain-aided navigation is becoming and increasingly relevant interest to the aerospace and marine communities. In particularly techniques involving the use of magnetic anomaly \cite{} and gravity anomaly \cite{} data are being explored primarily due to the fact that these phenomena can be sensed entirely passively via the sensors that are typically already available on an IMU circuit board.
+
+\begin{acks}
+The author would like to thank the following people for their assistance in recording the raw data files: Beth Brodovsky, Jeremy Brodovsky, Monica Brodovsky, Bill Siegl, and Alkesh Kumar.
+\end{acks}
+
+
+\bibliographystyle{SageH}
+\bibliography{references.bib}
+\end{document}

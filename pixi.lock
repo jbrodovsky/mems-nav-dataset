@@ -907,7 +907,7 @@ packages:
 - pypi: ./
   name: mems-nav-dataset
   version: 0.1.0
-  sha256: cce7f1a59ea229786b2820ccfc2ea9b3bcd55ccbf40d5653fb92c46c376cd683
+  sha256: 0b966e6552438a12ecca009d1f3fef9b6a58b6fa6261401b959c59f11b476533
   requires_dist:
   - numpy>=2.3.1,<3
   - pandas>=2.3.1,<3
