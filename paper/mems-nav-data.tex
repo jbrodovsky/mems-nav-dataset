@@ -1,11 +1,6 @@
-% sage_latex_guidelines.tex V1.20, 14 January 2017
-
 \documentclass[Review,sageh,times]{sagej}
-
 \usepackage{moreverb,url}
-
 \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
-%\usepackage{biblatex}
 
 \newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
 T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -17,13 +12,9 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \runninghead{Brodovsky MEMS-Nav}
 
 \title{MEMS-Nav: A MEMS-Grade Dataset for Navigation Research}
-
 \author{James Brodovsky\affilnum{1}}
-
 \affiliation{\affilnum{1}Temple University}
-
 \corrauth{James Brodovsky, Temple University, Philadelphia, PA 19122, USA}
-
 \email{jbrodovsky@temple.edu}
 
 \begin{abstract}
@@ -34,55 +25,97 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \maketitle
 
 \section{Introduction}
-Inertial navigation systems (INS) are widely used in various applications, including robotics, aerospace, and automotive industries. These systems rely on a combination of inertial measurement units (IMUs) and global navigation satellite systems (GNSS) to provide accurate position and orientation information. However, the performance of INS can be significantly affected by the quality of the sensor data, which is influenced by factors such as sensor noise, bias, and environmental conditions. 
+Inertial navigation systems (INSs) are widely used in various applications, including the robotics, aerospace, maritime, and automotive industries. These systems rely on a combination of inertial measurement units (IMUs) and external state feedback. The general architecture of a modern INS is to use the angular rate and specific force measurements from the IMU to propagate the state estimate over time. IMUs (even high quality ones) are nonetheless noisy sensors and integrating noise values twice eventually leads to substantial accumulation of error in the position and orientation estimates. This error is typically corrected for by some sort of external state feedback. The external state feedback is often provided by the global navigation satellite system (GNSS), external beacons or markers, or by mapping landmarks via computer vision, lidar, or other sensing modalities. 
 
-The general architecture of a modern INS is to use the angular rate and specific force measurements from the IMU to propagate the state estimate over time. IMUs (even high quality ones) are nonetheless noisy sensors and integrating noise values twice eventually leads to substantial accumulation of error in the position and orientation estimates. This error is typically corrected for by some sort of external position, velocity or combined measurement such as what is commonly available from the Global Positioning System (GPS) or the Global Navigation Satellite System (GNSS). However, these systems can be subject to various forms of degradation, including spoofing, intermittent availability, and other environmental factors that can affect the accuracy of the position estimates.
+These industries and modalities apply the same basic Bayesian filtering techniques (Kalman filters, particle filters, et cetera) to fuse the inertial measurements with the external state feedback. However the scale of each modality has facilitated different approaches to data collection and processing. While having it's origins in aerospace and maritime applications, the robotics and unmanned systems community has recently been making strides in the development of various autonomous navigation and localization applications. This in turn has influence the types of data collected by researchers in these fields.
 
-\subsection{Overview of available datasets}
+An additional factor is the long term reliance and overall quality of traditional GNSS-INS systems. Even relatively inexpensive commercial grade systems can achieve high levels of accuracy in optimal conditions. Accuracy on the order of a few meters (or even centimeters) is common and is often sufficient for a platform that has footprint of tens or hundreds of meters. However, these systems can be subject to various forms of degradation, including spoofing, intermittent availability, and other environmental factors that can affect the accuracy of the position estimates. This has led to an increased interest in alternative methods of navigation that do not rely solely on GNSS.
 
-Researchers and practitioners require access to quality datasets that capture or simulate the complexities of real-world navigation scenarios. Many such datasets exist that capture some aspects of these challenges, however they frequently rely on higher-end sensors \cite{}, are proprietary (even if still open-access) \cite{waymo}, or are collected in a fairly small scale laboratory or field setting \cite{mit-darpa,ford-campus,kitti-carla,kitti,nclt,oxford-robotcar,kaist-urban}. Even in a more applicable or ideal scenario, where the dataset is collected on a reasonable quality sensor that would potentially be deployed on an autonomous system, the data collected covers a comparatively small footprint (\cite{kitti,oxford-robotcar}). While potentially useful to develop a navigation system in these scenarios that uses common WGS84 coordinates (latitude and longitude et cetera) the route these vehicles take and the additional sensors on board are intended to provide position feedback in the form of scene or landmark recognition and/or simultaneous localization and mapping by incorporating additional information about the local environment via lidar obstacle detection, visual inertial odometry, scene comprehension, or other such methods.
 
-In contrast, many traditional navigation problems do not have such information available to them in their environment. The aerospace and marine communities frequently operate in open environments with little availability of notable landmarks. Outside of the explicit context of visual flight rules, which is considered a basic and limited aviation operation condition as professional pilots have to certify under additional qualifications that require only instrument flying, the reliance on inertial navigation and radio based position feedback is increasingly pronounced. 
-
-Now lets talk about radio nav and its problems, the increasing use of unmanned systems and their low SWaP needs.
+\section{Overview of available datasets}
+Researchers and practitioners require access to quality datasets that capture or simulate the complexities of real-world navigation scenarios. Many such datasets exist that capture some aspects of these challenges, however they frequently rely on higher-end sensors \cite{}, are proprietary (even if still open-access) \cite{waymo}, or are collected in a fairly small scale laboratory or field setting. Additionally the prominance of robotics and autonomy research groups publishing datasets in this field has led to a focus on datasets that are collected with the intent on developing a new capability (visual inertial odometry, simultaneous localization and mapping, et cetera) by leveraging and incorporating additional information about the local environment via additional sensors. This has also influence the scale of datasets collected and it common to see datasets that are collected on a small scale (such as in a building or laboratory) or in a small area (such as a campus or urban setting). A brief survey of these datasets is shown in Table \ref{tab:dataset_summary}.
 
 \begin{table}
-  \caption{Summary of the MEMS-Nav dataset}
+  \caption{Short summary of some publicly available navigation datasets. Most datasets focus on providing feedback via the structure of the surrounding environment and are typically recorded on a laboratory, campus, or urban setting.}
   \label{tab:dataset_summary}
   \centering
   \begin{tabular}{|l|c|c|c|}
     \hline
-    \textbf{Dataset} & \textbf{IMU} & \textbf{Ground Truth} & \textbf{Scale} \\
+    \textbf{Dataset} & \textbf{Platform} & \textbf{Ground Truth} & \textbf{Scale} \\
     \hline
-      MIT DARPA & NA & GPS+INS & Small \\
-      \cite{mit-darpa} & & & \\
+    MIT DARPA & Car & GPS+INS & Urban \\
+    \cite{mit-darpa} & & & \\
     \hline
-    Ford Campus  & Y & GPS+INS & Small \\
+    Ford Campus  & Car & GPS+INS & Campus \\
     \cite{ford-campus} & & & \\
     \hline
-    KITTI  & Y & GPS+INS & Medium \\
+    KITTI  & Car and Robot & GPS+INS & Urban \\
     \cite{kitti} & & & \\
     \hline
-    Oxford RobotCar  & Y & GPS+INS & Medium \\
+    Oxford RobotCar  & Car & GPS+INS & Urban \\
     \cite{oxford-robotcar} & & & \\
+    \hline
+    KAIST Urban & Car & SLAM & Urban \\
+    \cite{kaist-urban} & &  & \\
+    \hline
+    GFINS & Car & GPS+INS & Campus \\
+    \cite{yampolsky2024multiple} & & & \\
+    \hline
+    New College & Handheld & SLAM & Campus \\
+    \cite{new-college} & & & \\
+    \hline
+    Newer College & Handheld & SLAM & Campus \\
+    \cite{newer-college} & & & \\
+    \hline
+    UMA-VI & Handheld & SLAM & Campus \\
+    \cite{uma-vi} & & & \\
+    \hline
+    UZH FPV & UAV & GPS+INS & Campus \\
+    \cite{uzh-fpv} & & & \\
+    \hline
+    TUM VI & Handheld & SLAM & Campus \\
+    \cite{tum-vi} & & & \\
+    \hline
+    Penn Fast Flight & UAV & GPS & Laboratory \\
+    \cite{upenn-fast-flight} & & & \\
+    \hline
+    EuRoC & UAV & Laser Tracker & Campus \\
+    \cite{burri2016euroc} & & & \\
+    \hline
+    NTU VIRAL & UAV & Laser Tracker & Campus \\
+    \cite{nguyen2022ntu} & & & \\
+    \hline
+    \textbf{ANSFL} & \textbf{Mixed} & \textbf{GPS+INS} & \textbf{Regional} \\ % This is probably the most similar and close in terms of use case
+    \cite{ansfl} & & & \\
     \hline
   \end{tabular}
 \end{table}
 
-\subsection{MEMS-Nav Dataset}
+In contrast, many traditional navigation problems do not have such information available to them in their environment. The aerospace and marine communities frequently operate in open environments with little availability of notable landmarks. Outside of the explicit context of visual flight rules, which is considered a basic and limited aviation operation condition, the reliance on inertial navigation and radio based position feedback is increasingly pronounced. Aviation in particular has a long history of using radio navigation aids such as very high frequency omnidirectional range station (VOR), non-directional beacon (NDB), and distance measuring equipment (DME) navigation to provide position feedback to pilots through manual calculations. In modern practice, these systems are being phased out in favor of attitude heading and reference systems (AHRS) and inertial navigation systems (INS) that rely on inertial measurement units (IMUs) and global navigation satellite systems (GNSS) to provide position and orientation information. However, these systems can be subject to various forms of degradation, including spoofing, intermittent availability, and other environmental factors that can affect the accuracy of the position estimates.
+
+On the opposite end of the use-case spectrum, the maritime community also faces similar issues with the reliance on GNSS or radio navigation aides. Surface vessels face similar challenges to aircraft (degradation, spoofing, jamming, et cetera) but sub-surface vessels face the additional challenge of not being able to use GNSS at all. Sub-surface vessels, ranging from military submarines to scientific UUVs, rely on an onboard inertial navigation systems (INS) and other sensors to provide position and orientation information. Like all INS systems, these systems require external feedback in order to bound error. In contrast to surface vessels and aircraft, common means of obtaining such a position fix are typically at odds with the operational constraints of these platforms. The canonical example is that of a military submarine that must remain undetected and therefore cannot surface to obtain a GNSS fix. 
+
+In the aerospace and marine communities, this reliance on GNSS and radio navigation and it's limitations and vulnerabilities is a critical concern and has spurned interest in alternative position, navigation, and timing (PNT) methods. One such family of methods is a form of complimentary navigation that leverages geophysical data to provide position feedback. This is typically done by comparing the inertial measurements from the IMU with geophysical data such as magnetic (\cite{magnav, tyren1982magnetic, canciani2016absolute,canciani2017airborne}) or gravity anomalies (\cite{gravnav,jircitano1991gravity,kamgar1999vehicle,wang2016particle}) or terrain measurements (\cite{}). By comparing the inertial measurements with the geophysical data, it is possible to estimate the position of the platform without relying on GNSS or radio navigation aids. This approach has been shown to be effective in a variety of applications, including aircraft, submarines, and unmanned underwater vehicles (UUVs).
+
+Geophysical navigation methods do have a limitaion due to the resolution of the commonly used public maps (terrain: \cite{SANDWELL20211059}, gravity anomaly: \cite{EGM2008}, magnetic anomaly: \cite{wdmam}). These maps are typically at a coarse resolution. \cite{SANDWELL20211059} has the highest resolution of 15 arc-seconds (approximately 452 meters) where as \cite{EGM2008} and \cite{wdmam} are much lower resolution (1 arc minute and 3 arc minutes; approximately 1,852 and 5,556 meters respectively) and therefore require a large area to be covered in order to provide sufficient information for accurate position estimation. As a result, geophysical navigation methods are typically only viable on longer duration longer distance trajectories.
+
+\section{The MEMS-Nav Dataset}
+
 This paper presents the MEMS-Nav dataset, which is designed to be both accessible and representative of real-world conditions. The dataset is collected using MEMS-grade sensors, which are commonly found in modern smartphones and other consumer electronics. This makes the dataset more relatable and applicable to a wider audience, including researchers and developers working with low-cost navigation systems.
 
 This paper presents a MEMS-grade dataset specifically designed for navigation research, focusing on the use of low-cost, widely available sensors. The dataset includes a variety of trajectories collected under different conditions, enabling the evaluation and development of robust navigation algorithms.\cite{strapdown-rs}.
 
-In particular, the author sought to collect a dataset that is would prove useful in the development of low-cost inertial navigation systems that leverage geophysical feedback. So while some datasets exist that cover a reasonable range and area, due to the low scale resolution of publicly available geophysical maps such as the World Digital Magnetic Anomaly Map \cite{wdmam} and IPGG Free Air anomaly map (\cite{SANDWELL20211059}, \cite{EGM2008}) substantial linear distance would need to be convered in order to provide sufficient information.
+In particular, the author sought to collect a dataset that is would prove useful in the development of low-cost inertial navigation systems that leverage geophysical feedback. So while some datasets exist that cover a reasonable range and area, due to the low scale resolution of publicly available geophysical maps such as the World Digital Magnetic Anomaly Map \cite{wdmam} and IPGG Free Air anomaly map (\cite{SANDWELL20211059}, \cite{EGM2008}) substantial linear distance would need to be covered in order to provide sufficient information.
 
-
-
-\section{Strapdown Mechanization and Loosely-Coupled INSs}
+\subsection{Strapdown Mechanization and Loosely-Coupled INSs}
 
 The local level frame and strapdown mechanization are widely implemented and provide a robust framework for inertial navigation systems (INS). By aligning the local level frame with the Earth's surface, strapdown systems can effectively utilize inertial measurements for navigation tasks.
 
-\section{A basic example of geophysical navigation}
+\subsection{Reference INS Implementation}
+
+Talk about strapdown-rs package and simulator.
+
+\subsection{A basic example of geophysical navigation}
 
 Geophysical or terrain-aided navigation is becoming and increasingly relevant interest to the aerospace and marine communities. In particularly techniques involving the use of magnetic anomaly \cite{} and gravity anomaly \cite{} data are being explored primarily due to the fact that these phenomena can be sensed entirely passively via the sensors that are typically already available on an IMU circuit board.
 
