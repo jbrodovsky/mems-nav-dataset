@@ -1,0 +1,44 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'MEMS-Nav: A MEMS-Grade dataset for Navigation Research'
+message: >-
+  If you use this data, please cite it as below or cite the
+  paper contained in the paper directory.
+type: software
+authors:
+  - family-names: Brodovsky
+    given-names: James
+    orcid: 'https://orcid.org/0000-0002-1371-9044'
+  - family-names: Dames
+    given-names: Philip
+    orcid: 'https://orcid.org/0000-0002-7257-0075'
+repository-code: 'https://github.com/jbrodovsky/mems-nav-dataset'
+abstract: >-
+  This repository contains a dataset for evaluating
+  navigation algorithms using MEMS-grade sensors. Many other
+  such datasets either are collected in a fairly small scale
+  laboratory or field setting (typical of the robotics and
+  unmanned systems community), or they focus on high-end
+  sensors (typical of the marine and aerospace communities).
+  In contrast, this dataset splits the difference: it is
+  collected on what might be the most ubiquitous type of
+  sensor configuration --- the MEMS-grade IMU and GPS
+  antenna on most modern cell phones --- and contains longer
+  term trajectories comparable to the marine and aerospace
+  communities. It's primary contribution it to provide a
+  dataset that is both accessible and representative of
+  real-world navigation problems for education as well as
+  simulation of conditions of GPS/GNSS degradation,
+  spoofing, and intermittent availability to enable research
+  into alternative navigation techniques.
+keywords:
+  - ins
+  - gps
+  - navigation
+  - robotics
+  - gnss
+license: MIT
+version: 1.0.0
+date-released: '2025-09-16'

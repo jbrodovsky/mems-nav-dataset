@@ -1,0 +1,82 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Burri et~al.(2016)Burri, Nikolic, Gohl, Schneider, Rehder, Omari, Achtelik and Siegwart}]{burri2016euroc}
+Burri M, Nikolic J, Gohl P, Schneider T, Rehder J, Omari S, Achtelik MW and Siegwart R (2016) The euroc micro aerial vehicle datasets.
+\newblock \emph{The International Journal of Robotics Research} 35(10): 1157--1163.
+
+\bibitem[{Choi(2020)}]{awesome-sensor-logger}
+Choi TH (2020) Awesome sensor logger.
+\newblock Technical report.
+\newblock \urlprefix\url{https://github.com/tszheichoi/awesome-sensor-logger}.
+
+\bibitem[{Delmerico et~al.(2019)Delmerico, Cieslewski, Rebecq, Faessler and Scaramuzza}]{uzh-fpv}
+Delmerico J, Cieslewski T, Rebecq H, Faessler M and Scaramuzza D (2019) Are we ready for autonomous drone racing? the uzh-fpv drone racing dataset.
+\newblock In: \emph{2019 International Conference on Robotics and Automation (ICRA)}. IEEE, pp. 6713--6719.
+
+\bibitem[{Geiger et~al.(2013)Geiger, Lenz, Stiller and Urtasun}]{kitti}
+Geiger A, Lenz P, Stiller C and Urtasun R (2013) Vision meets robotics: The kitti dataset.
+\newblock \emph{The international journal of robotics research} 32(11): 1231--1237.
+
+\bibitem[{Groves(2008)}]{groves}
+Groves PD (2008) \emph{Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems}.
+\newblock Artech House.
+
+\bibitem[{Huang et~al.(2010)Huang, Antone, Olson, Fletcher, Moore, Teller and Leonard}]{mit-darpa}
+Huang AS, Antone M, Olson E, Fletcher L, Moore D, Teller S and Leonard J (2010) A high-rate, heterogeneous data set from the {DARPA} urban challenge.
+\newblock \emph{The International Journal of Robotics Research} 29(13): 1595--1601.
+
+\bibitem[{Jeong et~al.(2019)Jeong, Cho, Shin, Roh and Kim}]{kaist-urban}
+Jeong J, Cho Y, Shin YS, Roh H and Kim A (2019) Complex urban dataset with multi-level sensors from highly diverse urban environments.
+\newblock \emph{The International Journal of Robotics Research} 38(6): 642--657.
+
+\bibitem[{Maddern et~al.(2017)Maddern, Pascoe, Linegar and Newman}]{oxford-robotcar}
+Maddern W, Pascoe G, Linegar C and Newman P (2017) 1 year, 1000 km: The oxford robotcar dataset.
+\newblock \emph{The International Journal of Robotics Research} 36(1): 3--15.
+
+\bibitem[{Nguyen et~al.(2022)Nguyen, Yuan, Cao, Lyu, Nguyen and Xie}]{nguyen2022ntu}
+Nguyen TM, Yuan S, Cao M, Lyu Y, Nguyen TH and Xie L (2022) Ntu viral: A visual-inertial-ranging-lidar dataset, from an aerial vehicle viewpoint.
+\newblock \emph{The International Journal of Robotics Research} 41(3): 270--280.
+
+\bibitem[{Pandey et~al.(2011)Pandey, McBride and Eustice}]{ford-campus}
+Pandey G, McBride JR and Eustice RM (2011) Ford campus vision and lidar data set.
+\newblock \emph{The International Journal of Robotics Research} 30(13): 1543--1552.
+
+\bibitem[{Ramezani et~al.(2020)Ramezani, Wang, Camurri, Wisth, Mattamala and Fallon}]{newer-college}
+Ramezani M, Wang Y, Camurri M, Wisth D, Mattamala M and Fallon M (2020) The newer college dataset: Handheld lidar, inertial and vision with ground truth.
+\newblock In: \emph{2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}. IEEE, pp. 4353--4360.
+
+\bibitem[{Schubert et~al.(2018)Schubert, Goll, Demmel, Usenko, St{\"u}ckler and Cremers}]{tum-vi}
+Schubert D, Goll T, Demmel N, Usenko V, St{\"u}ckler J and Cremers D (2018) The tum vi benchmark for evaluating visual-inertial odometry.
+\newblock In: \emph{2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}. IEEE, pp. 1680--1687.
+
+\bibitem[{Shurin et~al.(2022)Shurin, Saraev, Yona, Gutnik, Faber, Etzion and Klein}]{ansfl}
+Shurin A, Saraev A, Yona M, Gutnik Y, Faber S, Etzion A and Klein I (2022) The autonomous platforms inertial dataset.
+\newblock \emph{IEEE Access} \doi{10.1109/ACCESS.2022.3144076}.
+
+\bibitem[{Smith et~al.(2009)Smith, Baldwin, Churchill, Paul and Newman}]{new-college}
+Smith M, Baldwin I, Churchill W, Paul R and Newman P (2009) The new college vision and laser data set.
+\newblock \emph{The International Journal of Robotics Research} 28(5): 595--599.
+
+\bibitem[{Sun et~al.(2018)Sun, Mohta, Pfrommer, Watterson, Liu, Mulgaonkar, Taylor and Kumar}]{upenn-fast-flight}
+Sun K, Mohta K, Pfrommer B, Watterson M, Liu S, Mulgaonkar Y, Taylor CJ and Kumar V (2018) Robust stereo visual inertial odometry for fast autonomous flight.
+\newblock \emph{IEEE Robotics and Automation Letters} 3(2): 965--972.
+
+\bibitem[{{Waymo LLC}(2025)}]{waymo}
+{Waymo LLC} (2025) End-to-end driving dataset.
+\newblock Technical report.
+
+\bibitem[{Yampolsky et~al.(2024)Yampolsky, Stolero, Pri-Hadash, Solodar, Massas, Savin and Klein}]{yampolsky2024multiple}
+Yampolsky Z, Stolero Y, Pri-Hadash N, Solodar D, Massas S, Savin I and Klein I (2024) Multiple and gyro-free inertial datasets.
+\newblock \emph{Scientific Data} 11(1): 1080.
+
+\bibitem[{Zu{\~n}iga-No{\"e}l et~al.(2020)Zu{\~n}iga-No{\"e}l, Jaenal, Gomez-Ojeda and Gonzalez-Jimenez}]{uma-vi}
+Zu{\~n}iga-No{\"e}l D, Jaenal A, Gomez-Ojeda R and Gonzalez-Jimenez J (2020) The uma-vi dataset: Visual--inertial odometry in low-textured and dynamic illumination environments.
+\newblock \emph{The International Journal of Robotics Research} 39(9): 1052--1060.
+
+\end{thebibliography}

@@ -1,6 +1,6 @@
 # MEMS Navigation Dataset
 
-This repository contains a dataset and toolbox for evaluating navigation algorithms using MEMS-grade sensors. The dataset includes raw measurements from GPS and IMU sensors as well as calculated INS data. The toolbox provides utilities for processing and analyzing these measurements. The primary focus is on enabling the research of navigation in GPS/GNSS denied, degraded, or contested environments using low-cost MEMS sensors such as what you would find on a typical smartphone.
+This repository contains a dataset for evaluating navigation algorithms using MEMS-grade sensors. Many other such datasets either are collected in a fairly small scale laboratory or field setting (typical of the robotics and unmanned systems community), or they focus on high-end sensors (typical of the marine and aerospace communities). In contrast, this dataset splits the difference: it is collected on what might be the most ubiquitous type of sensor configuration --- the MEMS-grade IMU and GPS antenna on most modern cell phones --- and contains longer term trajectories comparable to the marine and aerospace communities. It's primary contribution it to provide a dataset that is both accessible and representative of real-world navigation problems for education as well as simulation of conditions of GPS/GNSS degradation, spoofing, and intermittent availability to enable research into alternative navigation techniques.
 
 ## Dataset Overview
 

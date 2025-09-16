@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mems-nav-data.aux
+The style file: SageH.bst
+Database file #1: references.bib
+Warning--empty institution in awesome-sensor-logger
+Warning--empty institution in waymo
+You've used 18 entries,
+            2921 wiz_defined-function locations,
+            709 strings with 8437 characters,
+and the built_in function-call counts, 24619 in all, are:
+= -- 2566
+> -- 740
+< -- 6
++ -- 296
+- -- 265
+* -- 1849
+:= -- 2956
+add.period$ -- 40
+call.type$ -- 18
+change.case$ -- 185
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 2459
+empty$ -- 1786
+format.name$ -- 312
+if$ -- 5006
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 213
+newline$ -- 82
+num.names$ -- 72
+pop$ -- 1221
+preamble$ -- 1
+purify$ -- 160
+quote$ -- 0
+skip$ -- 358
+stack$ -- 0
+substring$ -- 2883
+swap$ -- 542
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 159
+warning$ -- 2
+while$ -- 172
+width$ -- 0
+write$ -- 226
+(There were 2 warnings)
