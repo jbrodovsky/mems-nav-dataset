@@ -1,0 +1,14 @@
+The MEMS-Nav data -- the raw recordings, the processed trajectories, the benchmark results and
+the paper under paper/ -- are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt them for any purpose, provided you give appropriate credit (see
+CITATION.cff), link to the license, and indicate if changes were made.
+
+The geophysical grids in maps.zip are excerpts of third-party global models, each under its
+own terms; see the "Maps" section of README.md.
+
+The code in this repository (src/, tests/) is licensed separately under the MIT License; see
+LICENSE.

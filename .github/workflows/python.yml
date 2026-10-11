@@ -1,0 +1,35 @@
+name: Test and Lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  memsnav:
+    name: memsnav (lint + tests)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      # `--frozen` makes a stale uv.lock a failure rather than a silent re-resolve.
+      - name: Sync
+        run: uv sync --frozen
+
+      # No GMT here on purpose: pygmt is the optional `maps` extra and is imported only inside
+      # `download_maps`. If an import of it moves to module scope, this job fails.
+      - name: Lint
+        run: uv run ruff check
+
+      - name: Format check
+        run: uv run ruff format --check
+
+      - name: Test
+        run: uv run pytest -q

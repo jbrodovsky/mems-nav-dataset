@@ -1,0 +1,67 @@
+[project]
+name = "memsnav"
+version = "0.1.0"
+description = "Fetch, preprocess and package the MEMS-Nav smartphone navigation dataset"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "James Brodovsky", email = "james.brodovsky@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    # Street-map PNG written beside every processed trajectory.
+    "cartopy>=0.25.0",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.0",
+    "pandas>=2.3.3",
+    # cartopy warps the OSM tiles with scipy and does not depend on it itself.
+    "scipy>=1.16.3",
+    "tqdm>=4.67.1",
+]
+
+[project.optional-dependencies]
+# Only `memsnav preprocess --getmaps` needs these. pygmt dlopens the GMT C library on import,
+# so it is imported inside `download_maps` and never at module scope: everything else in this
+# package -- fetching included -- works on a machine without GMT.
+maps = [
+    "netcdf4>=1.7.0",
+    "pygmt>=0.17.0",
+]
+
+[project.scripts]
+memsnav = "memsnav.cli:main"
+
+[project.urls]
+Repository = "https://github.com/jbrodovsky/mems-nav-dataset"
+Simulator = "https://github.com/jbrodovsky/strapdown-rs"
+
+[build-system]
+requires = ["uv_build>=0.9.21,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.14",
+]
+
+[tool.uv.build-backend]
+# manifest.json is package data: `memsnav fetch` reads it from the installed package, so a
+# `uv add`/`pip install` from git can fetch without a checkout of this repository.
+module-root = "src"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = ["paper"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "NPY"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:Engine 'gmt' loading failed:RuntimeWarning",
+]

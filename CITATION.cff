@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: 'MEMS-Nav: smartphone inertial, magnetic, barometric and GNSS recordings for navigation research'
+message: >-
+  If you use these data, please cite the Zenodo record below and the data article in
+  paper/.
+type: dataset
+authors:
+  - family-names: Brodovsky
+    given-names: James
+    orcid: 'https://orcid.org/0000-0002-1371-9044'
+  - family-names: Dames
+    given-names: Philip
+    orcid: 'https://orcid.org/0000-0002-7257-0075'
+# doi: 10.5281/zenodo.TODO   (fill in once the Zenodo record is reserved)
+repository-code: 'https://github.com/jbrodovsky/mems-nav-dataset'
+license: CC-BY-4.0
+version: 1.0.0
+keywords:
+  - inertial navigation
+  - GNSS
+  - smartphone
+  - MEMS
+  - dataset
+abstract: >-
+  Long road drives recorded with the inertial, magnetic, barometric and GNSS sensors of
+  ordinary smartphones: 29 raw Sensor Logger recordings from seven phone models, 27
+  processed 10 Hz trajectories with relief, gravity-anomaly and magnetic-anomaly map tiles,
+  and reference baselines from strapdown-rs. This repository holds the memsnav package that
+  fetches, rebuilds and packages the data; the data themselves are on Zenodo.
